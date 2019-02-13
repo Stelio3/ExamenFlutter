@@ -15,6 +15,30 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   List<Data> data = [];
+
+  void _showDialog() {
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text("La respueste es:"),
+          content: new Text("Incorrecta"),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FlatButton(
+              child: new Text("Cerrar"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +54,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               elevation: 4.0,
               splashColor: Colors.blueGrey,
               onPressed: () {
-                // Perform some action
+                _showDialog();
               },
             ),
             RaisedButton(
@@ -38,7 +62,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               elevation: 4.0,
               splashColor: Colors.blueGrey,
               onPressed: () {
-                // Perform some action
+                _showDialog();
               },
 
             ),
@@ -47,7 +71,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               elevation: 4.0,
               splashColor: Colors.blueGrey,
               onPressed: () {
-                // Perform some action
+                _showDialog();
               },
             ),
           ],
